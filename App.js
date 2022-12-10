@@ -36,7 +36,7 @@ app.post("/pokemon/add", async (req, res) => {
   }
 });
 
-app.get('/pokemon/all', async (req, res) => {
+app.get('/pokemon/', async (req, res) => {
   try {
     const data = await pokemonModel.find();
     res.json(data)
@@ -45,5 +45,14 @@ app.get('/pokemon/all', async (req, res) => {
   }
 })
 
+app.get('/pokemon/:name',async (req,res) => {
+  try {
+    const {name}=req.params
+    const data = await pokemonModel.find({name : name})
+    res.json(data)
+  } catch (error) {
+    console.log("error",error)
+  }
+})
 
 
