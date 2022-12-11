@@ -7,7 +7,7 @@ const dblink =
 mongoose
   .connect(dblink)
   .then(() => {
-    console.log("DB connected.");
+    console.log("pokemon DB connected.");
   })
   .catch((err) => {
     console.log("Error", err);

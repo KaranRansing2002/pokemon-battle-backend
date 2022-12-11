@@ -3,14 +3,14 @@ const { default: mongoose } = require("mongoose");
 const app = express();
 
 const cors = require("cors");
+const pokemonRouter = require("./routers/pokemonRouter");
+const movesRouter = require("./routers/movesRouter");
 const corsOptions = {
   origin: "*",
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
 app.use(cors(corsOptions)); // Use this after the variable declaration
-
-const pokemonModel = require("./models/pokemonModel");
 
 app.use(express.json());
 
@@ -22,37 +22,10 @@ app.get("/", (req, res) => {
   res.json("Hello world");
 });
 
-app.post("/pokemon/add", async (req, res) => {
-  try {
-    const data = req.body;
-    const pokemon = await pokemonModel.create(data);
-    res.json({
-      message: pokemon,
-    });
-    const id = await pokemonModel.find({'id' : 0});
-    console.log(id);
-  } catch (err) {
-    console.log(err);
-  }
-});
 
-app.get('/pokemon/', async (req, res) => {
-  try {
-    const data = await pokemonModel.find();
-    res.json(data)
-  } catch (error) {
-    console.log(err)
-  }
-})
+app.use('/pokemon',pokemonRouter)
 
-app.get('/pokemon/:name',async (req,res) => {
-  try {
-    const {name}=req.params
-    const data = await pokemonModel.find({name : name})
-    res.json(data)
-  } catch (error) {
-    console.log("error",error)
-  }
-})
+app.use('/moves', movesRouter)
+
 
 
