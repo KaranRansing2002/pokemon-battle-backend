@@ -9,7 +9,7 @@ async function addMoves(req,res){
             data : move
         })
     } catch (err) {
-        console.log(err)
+        console.log("error",err)
     }
 }
 

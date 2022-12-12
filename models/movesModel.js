@@ -36,25 +36,25 @@ const movesSchema = mongoose.Schema({
         required : true
     },
     Power : {
-        type : Number,
+        type : String,
         required : true
     },
     Accuracy : {
-        type : Number,
-        required : true
+        type : String,
+        required : true 
     },
     Effect : {
         type : String,
     },
     TM : {
-        type : Number
+        type : String
     },
     PP : {
-        type : Number,
+        type : String,
         required : true
     },
     Prob : {
-        type : Number,
+        type : String,
     }
 })
 
