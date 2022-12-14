@@ -16,8 +16,17 @@ async function addMoves(req,res){
 async function getAllMoves(req,res) {
     try {
         const data = await movesModel.find();
-        res.json(data)
-    } catch (error) {
+        let ndata=[];
+        let ids=[];
+        for(let i=0;i<data.length;i++){
+            if(ids.includes(data[i]["Id"])){
+                continue;
+            }
+            ids.push(data[i]["Id"]);
+            ndata.push(data[i]);
+        }
+        res.json(ndata);
+    } catch (err) {
         console.log(err)
     }
 }
