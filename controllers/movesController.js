@@ -31,4 +31,15 @@ async function getAllMoves(req,res) {
     }
 }
 
-module.exports={addMoves, getAllMoves}
+async function moveDetails(req, res) {
+    try {
+        const name = req.params.name;
+        const data = await movesModel.findOne({ Name: name })
+        res.json(data);
+    } catch (err) {
+        console.log(err);
+        res.send(err);
+    }
+}
+
+module.exports={addMoves, getAllMoves,moveDetails}

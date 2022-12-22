@@ -1,5 +1,5 @@
 const express = require('express');
-const { getAllMoves, addMoves } = require('../controllers/movesController');
+const { getAllMoves, addMoves, moveDetails } = require('../controllers/movesController');
 const movesRouter = express.Router();
 
 movesRouter.route('/all')
@@ -7,5 +7,8 @@ movesRouter.route('/all')
 
 movesRouter.route('/')
     .post(addMoves)
+
+movesRouter.route('/:name')
+    .get(moveDetails)
 
 module.exports=movesRouter
