@@ -36,7 +36,7 @@ async function moveDetails(req, res) {
         const name = req.params.name;
         const data = await movesModel.findOne({ Name: name })
         res.json(data);
-    } catch (err) {
+    } catch (err) { 
         console.log(err);
         res.send(err);
     }

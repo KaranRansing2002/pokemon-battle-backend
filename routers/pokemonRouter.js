@@ -9,7 +9,7 @@ pokemonRouter.route('/all')
 pokemonRouter.route('/')
     .post(addPokemon)
 
-pokemonRouter.route('/:name')
+pokemonRouter.route('/:name') 
     .get(findPokemon)
 
 module.exports = pokemonRouter
