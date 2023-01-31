@@ -50,7 +50,7 @@ io.on("connection", (socket) => {
   })
 
   socket.on("attack", (data) => {
-    console.log(data);
+    console.log("here",data);
     socket.to(data.roomid).emit("opponent_attack", data);
   })
 
