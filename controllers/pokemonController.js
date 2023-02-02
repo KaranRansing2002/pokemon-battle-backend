@@ -8,7 +8,7 @@ async function addPokemon (req, res) {
         message: pokemon,
       });
       const id = await pokemonModel.find({'id' : 0});
-      console.log(id);
+      // console.log(id);
     } catch (err) {
       console.log(err);
     }

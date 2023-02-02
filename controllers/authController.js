@@ -17,7 +17,7 @@ async function signup(req, res) {
             })
         } 
         else {
-            console.log("sdknf")
+            // console.log("sdknf")
             return res.json({
                 successfull: false, 
                 message: "error while signing up",
@@ -73,7 +73,7 @@ async function signin(req, res) {
             }
         }
     } catch (err) {
-        console.log("slkdf");
+        // console.log("slkdf");
         res.json({
             successfull: false,
             message: "error ",
@@ -83,7 +83,7 @@ async function signin(req, res) {
 
 async function protectRoute(req, res, next) {
     try {
-        console.log("cookies",req.cookies)
+        // console.log("cookies",req.cookies)
         let token;
         if (req.cookies.login) {
             token=req.cookies.login

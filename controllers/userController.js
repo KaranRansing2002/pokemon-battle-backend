@@ -19,7 +19,7 @@ async function addTeam(req, res) {
         console.log("add")
         const { team , email} = req.body;
         const user = await userModel.findOne({ email: email });
-        console.log(req.body);
+        // console.log(req.body);
         user.team.push(req.body);
         await user.save();
         // const objj = { ...user }
@@ -34,9 +34,29 @@ async function addTeam(req, res) {
     }
 }
 
-
+async function deleteTeam(req, res) { 
+    try {
+        const {team,email} = req.body;
+        const user = await userModel.findOneAndUpdate({ email: email }, {team: team})
+        if (user){
+            res.json({
+                successful: true,
+                message : "team deleted successfully",
+            })
+        }
+        else{
+            res.json({
+                successful: false,
+                message: 'Team not found!'
+            })
+        }
+    } catch (err) {
+        console.log(err);
+    }
+}
  
 module.exports = {
     addTeam,
     getTeam,
-}
+    deleteTeam
+} 
