@@ -29,9 +29,10 @@ const io = new Server(server, {
 })
 
 io.on("connection", (socket) => {
-  console.log("user connected", socket.id)
+  // console.log("user connected", socket.id)
  
   socket.on("join_room", (data) => {
+    console.log("room joined", data);
     socket.join(data);
   })
   
@@ -47,7 +48,7 @@ io.on("connection", (socket) => {
 
   socket.on("currhp", (data) => {
     socket.to(data.roomid).emit("opponent_hp", data);
-  })
+  }) 
 
   socket.on("attack", (data) => {
     console.log("here",data);
@@ -56,7 +57,7 @@ io.on("connection", (socket) => {
 
   socket.on("disconnect", () => {
     console.log("User Disconnected", socket.id);
-  })
+  }) 
 
 })
 
