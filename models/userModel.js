@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const emailValidator = require('email-validator')
 const bcrypt = require('bcrypt')
-const crypto = require('crypto')
+const crypto = require('crypto');
 
 const dblink =
   "mongodb+srv://Strange007:CGPcJe8SeHIFj9jI@cluster0.elmuzpg.mongodb.net/?retryWrites=true&w=majority";

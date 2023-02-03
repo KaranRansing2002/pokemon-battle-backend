@@ -58,5 +58,5 @@ async function deleteTeam(req, res) {
 module.exports = {
     addTeam,
     getTeam,
-    deleteTeam
+    deleteTeam,
 } 

@@ -13,8 +13,8 @@ userRouter.route('/signout')
     .get(logout)
 
 userRouter.route('/team')
-    .get(protectRoute,getTeam)
+    .get(protectRoute, getTeam)
     .post(protectRoute, addTeam)
     .patch(protectRoute, deleteTeam)
 
-module.exports = userRouter;
+module.exports = userRouter;;
