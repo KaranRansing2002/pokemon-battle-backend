@@ -9,6 +9,7 @@ const userRouter = require("./routers/userRouter");
 const http = require('http')
 const {Server} = require("socket.io")
 
+console.log("it is working !");
 
 const corsOptions = {
   origin: "http://localhost:3000",
