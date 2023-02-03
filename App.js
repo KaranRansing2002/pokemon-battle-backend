@@ -36,7 +36,7 @@ io.on("connection", (socket) => {
     socket.join(data);
   })
   
-  socket.on("send_message", (data) => {
+  socket.on("send_message", (data) => { 
     console.log(data);
     socket.to(data.roomid).emit("receive_message", data);
   })
@@ -51,13 +51,13 @@ io.on("connection", (socket) => {
   }) 
 
   socket.on("attack", (data) => {
-    console.log("here",data);
+    // console.log("here",data);
     socket.to(data.roomid).emit("opponent_attack", data);
   })
 
-  socket.on("disconnect", () => {
-    console.log("User Disconnected", socket.id);
-  }) 
+  // socket.on("disconnect", () => {
+  //   console.log("User Disconnected", socket.id);
+  // }) 
 
 })
 
