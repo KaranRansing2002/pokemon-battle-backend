@@ -27,49 +27,47 @@ app.use(function(req, res, next) {
   next();
 });
 
-const server = http.createServer(app);
+// const io = new Server(app, {
+//   cors: {
+//     origin: "http://localhost:3000",
+//     methods : ['GET','POST']
+//   }
+// })
 
-const io = new Server(server, {
-  cors: {
-    origin: "http://localhost:3000",
-    methods : ['GET','POST']
-  }
-})
-
-io.on("connection", (socket) => {
-  // console.log("user connected", socket.id)
+// io.on("connection", (socket) => {
+//   // console.log("user connected", socket.id)
  
-  socket.on("join_room", (data) => {
-    console.log("room joined", data);
-    socket.join(data);
-  })
+//   socket.on("join_room", (data) => {
+//     console.log("room joined", data);
+//     socket.join(data);
+//   })
   
-  socket.on("send_message", (data) => { 
-    console.log(data);
-    socket.to(data.roomid).emit("receive_message", data);
-  })
+//   socket.on("send_message", (data) => { 
+//     console.log(data);
+//     socket.to(data.roomid).emit("receive_message", data);
+//   })
 
-  socket.on("pokemon", (data) => {
-    console.log(data);
-    socket.to(data.roomid).emit("opponent_pokemon",data)
-  })
+//   socket.on("pokemon", (data) => {
+//     console.log(data);
+//     socket.to(data.roomid).emit("opponent_pokemon",data)
+//   })
 
-  socket.on("currhp", (data) => {
-    socket.to(data.roomid).emit("opponent_hp", data);
-  }) 
+//   socket.on("currhp", (data) => {
+//     socket.to(data.roomid).emit("opponent_hp", data);
+//   }) 
 
-  socket.on("attack", (data) => {
-    // console.log("here",data);
-    socket.to(data.roomid).emit("opponent_attack", data);
-  })
+//   socket.on("attack", (data) => {
+//     // console.log("here",data);
+//     socket.to(data.roomid).emit("opponent_attack", data);
+//   })
 
-  // socket.on("disconnect", () => {
-  //   console.log("User Disconnected", socket.id);
-  // }) 
+//   // socket.on("disconnect", () => {
+//   //   console.log("User Disconnected", socket.id);
+//   // }) 
 
-})
+// })
 
-server.listen(8000, () => {
+app.listen(8000, () => {
   console.log("Server started.");  
 }); 
 
