@@ -120,7 +120,7 @@ async function protectRoute(req, res, next) {
 async function logout(req, res) {
     try { 
         console.log(req.cookies.login)
-        res.clearCookie('login',{ httpOnly: true, sameSite: "strict", secure: true });
+        res.clearCookie('login',{ httpOnly: true, sameSite: "none", secure: true });
         res.json({
             successfull: true,
             message : "user logged out",
