@@ -52,7 +52,7 @@ async function signin(req, res) {
             if (match) {
                 const uid = user['_id'];
                 const token = jwt.sign({ payload: uid }, jwt_key);
-                res.cookie('login', token, { maxAge : 3600*1000*24*7, httpOnly: true,secure : true ,sameSite : 'None'})
+                res.cookie('login', token, { maxAge : 3600*1000*24*7, httpOnly: true,secure : true ,sameSite : 'none',domain : 'localhost:3000'})
                 console.log("cookie made");
                 let obj = {};
                 obj.username = user.username;
