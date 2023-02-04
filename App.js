@@ -33,7 +33,7 @@ const server = app.listen(8000, () => {
 const io = new Server(server, {
   cors: {
     origin: "*",
-    methods : ['GET','POST']
+    methods : ['GET','POST','PATCH','DELETE']
   }
 })
 
