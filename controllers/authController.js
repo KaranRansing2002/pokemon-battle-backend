@@ -47,7 +47,7 @@ async function signin(req, res) {
         }
         else {
             // console.log("user here")
-            console.log(password,user.password)
+            // console.log(password,user.password)
             const match = await bcrypt.compare(password, user.password);
             if (match) {
                 const uid = user['_id'];
@@ -119,7 +119,7 @@ async function protectRoute(req, res, next) {
 }
 async function logout(req, res) {
     try { 
-        console.log(req.cookies.login)
+        // console.log(req.cookies.login)
         res.clearCookie('login',{ httpOnly: true, sameSite: "none", secure: true });
         res.json({
             successfull: true,

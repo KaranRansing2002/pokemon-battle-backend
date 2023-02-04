@@ -16,7 +16,7 @@ const corsOptions = {
   credentials: true, //
 };
 
-// app.use(cors(corsOptions)); // Use this after the variable declaration
+app.use(cors(corsOptions)); // Use this after the variable declaration
 app.use(express.json());
 app.use(cookieParser());
 app.use(function(req, res, next) {

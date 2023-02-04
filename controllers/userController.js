@@ -36,7 +36,8 @@ async function addTeam(req, res) {
 
 async function deleteTeam(req, res) { 
     try {
-        const {team,email} = req.body;
+        const { team, email } = req.body;
+        console.log(email);
         const user = await userModel.findOneAndUpdate({ email: email }, {team: team})
         if (user){
             res.json({
