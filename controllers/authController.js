@@ -46,13 +46,13 @@ async function signin(req, res) {
             })
         }
         else {
-            console.log("user here")
-            // console.log(password,user.password)
+            // console.log("user here")
+            console.log(password,user.password)
             const match = await bcrypt.compare(password, user.password);
             if (match) {
                 const uid = user['_id'];
                 const token = jwt.sign({ payload: uid }, jwt_key);
-                res.cookie('login', token, { maxAge : 3600*1000*24*7, httpOnly: true,secure : true ,sameSite : 'lax'})
+                res.cookie('login', token, { maxAge : 3600*1000*24*7, httpOnly: false,secure : true ,sameSite : 'lax'})
                 let obj = {};
                 obj.username = user.username;
                 obj.team = user.team;
