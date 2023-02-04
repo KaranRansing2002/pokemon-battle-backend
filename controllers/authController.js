@@ -52,7 +52,8 @@ async function signin(req, res) {
             if (match) {
                 const uid = user['_id'];
                 const token = jwt.sign({ payload: uid }, jwt_key);
-                res.cookie('login', token, { maxAge : 3600*1000*24*7, httpOnly: false,secure : true ,sameSite : 'lax'})
+                res.cookie('login', token, { maxAge : 3600*1000*24*7, httpOnly: true,secure : true ,sameSite : 'lax'})
+                console.log("cookie made");
                 let obj = {};
                 obj.username = user.username;
                 obj.team = user.team;
@@ -73,7 +74,7 @@ async function signin(req, res) {
             }
         }
     } catch (err) {
-        // console.log("slkdf");
+        console.log("error here");
         res.json({
             successfull: false,
             message: "error ",
