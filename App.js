@@ -12,7 +12,7 @@ const {Server} = require("socket.io")
 console.log("it is working !");
 
 const corsOptions = {
-  origin: ["https://pokemon-battle-simulator-snowy.vercel.app","https://karanransing2002.github.io/pokemon-battle-simulator"],
+  origin: "https://pokemon-battle-simulator-snowy.vercel.app",
   credentials: true, //
 };
 
@@ -20,7 +20,7 @@ app.use(cors(corsOptions)); // Use this after the variable declaration
 app.use(express.json());
 app.use(cookieParser());
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", ["https://pokemon-battle-simulator-snowy.vercel.app","https://karanransing2002.github.io/pokemon-battle-simulator"]);
+  res.header("Access-Control-Allow-Origin", "https://pokemon-battle-simulator-snowy.vercel.app");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
   res.header("Access-Control-Allow-Credentials", "true");
