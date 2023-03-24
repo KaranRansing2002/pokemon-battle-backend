@@ -11,7 +11,7 @@ const {Server} = require("socket.io")
 
 console.log("it is working !");
 
-const urls=["https://pokemon-showdown-mu.vercel.app/",'http://localhost:3000']
+const urls=["https://pokemon-showdown-mu.vercel.app",'http://localhost:3000']
 
 const corsOptions = {
   origin: urls[0],
